@@ -15,7 +15,7 @@ generate_password() {
 
 # Function to check if the log entry is present
 check_log_entry() {
-    docker-compose logs | grep -q "Initial Password Set To"
+    docker logs $(docker ps -a | grep _bloodhound | awk '{print $1}') | grep "Initial Password Set To" 
 }
 
 # Generate and print the random password
