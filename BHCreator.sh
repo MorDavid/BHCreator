@@ -129,7 +129,7 @@ echo "Waiting for the log entry: 'Initial Password Set To'..."
 while ! check_log_entry; do
     sleep 1
 done
-echo 'Password: '$(docker logs bloodhound_docker_bloodhound_1 2>&1 | grep "Initial Password Set To" --color=never | grep -oP '"message":"#\sInitial\sPassword\sSet\sTo:\s+([^#\s]+)\s+#"' --color=never | awk '{print $6}')
+echo 'Password: '$(docker logs `docker ps -a | grep _bloodhound | awk "{print $1}"` | grep "Initial Password Set To" --color=never | grep -oP '"message":"#\sInitial\sPassword\sSet\sTo:\s+([^#\s]+)\s+#"' --color=never | awk '{print $6}')
 echo ""
 echo "[+] Neo4j's credentials:"
 echo 'Username: neo4j'
