@@ -113,6 +113,9 @@ sed -i 's/#bhe_default_admin_password=/bhe_default_admin_password=Aa123456789!/'
 sed -i 's/#bhe_default_admin_email_address=/bhe_default_admin_email_address=info@mdapp.co.il/' .env
 sed -i 's/#bhe_default_admin_first_name=/bhe_default_admin_first_name=Mor/' .env
 sed -i 's/#bhe_default_admin_last_name=/bhe_default_admin_last_name=BH/' .env
+sed -i 's/#bhe_enable_cypher_mutations=true/bhe_enable_cypher_mutations=true/' .env
+sed -i 's/#bhe_graph_query_memory_limit=0/bhe_graph_query_memory_limit=0/' .env
+sed -i 's/#bhe_disable_cypher_complexity_limit=true/bhe_disable_cypher_complexity_limit=true/' .env
 echo '[+] Editing docker-compose.yml'
 sed -i 's/127.0.0.1:${NEO4J_DB_PORT:-7687}:7687/0.0.0.0:${NEO4J_DB_PORT:-7687}:7687/' docker-compose.yml
 sed -i 's/127.0.0.1:${NEO4J_WEB_PORT:-7474}:7474/0.0.0.0:${NEO4J_WEB_PORT:-7474}:7474/' docker-compose.yml
