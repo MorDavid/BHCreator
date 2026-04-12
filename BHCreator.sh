@@ -35,10 +35,10 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-# Check if Docker is installed
+
 if ! command -v docker &> /dev/null; then
-    echo "[X] Docker is not installed. Please install Docker before installing Docker Compose."
-    exit 1
+    apt update
+    apt install docker.io -y
 fi
 
 # Check if Docker Compose is installed
