@@ -37,8 +37,8 @@ fi
 
 
 if ! command -v docker &> /dev/null; then
-    apt update
-    apt install docker.io -y
+    echo "[X] Docker is not installed. Please install Docker before installing Docker Compose."
+    exit 1
 fi
 
 # Check if Docker Compose is installed
